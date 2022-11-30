@@ -14,6 +14,7 @@ public class Block {
 		this.timeStamp = new Date().getTime();
 		this.hash = calculateHash();
 	}
+	
 	public String calculateHash() {
 		String calculatedHash = StringUtil.applySha256(
 				previousHash +
@@ -23,6 +24,7 @@ public class Block {
 			);
 		return calculatedHash;
 	}
+	
 	public void mineBlock(int difficulty){
 		String target = new String(new char[difficulty]).replace('\0', '0');
 		while(!hash.substring(0, difficulty).equals(target)) {
