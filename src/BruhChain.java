@@ -22,7 +22,7 @@ public class BruhChain {
 		walletB = new Wallet();		
 		Wallet coinbase = new Wallet();
 		
-		//create genesis transaction, which sends 100 NoobCoin to walletA: 
+		//create genesis transaction, which sends 100 BruhCoin to walletA: 
 		genesisTransaction = new Transaction(coinbase.publicKey, walletA.publicKey, 100f, null);
 		genesisTransaction.generateSignature(coinbase.privateKey);	 //manually sign the genesis transaction	
 		genesisTransaction.transactionId = "0"; //manually set the transaction id
@@ -122,11 +122,11 @@ public class BruhChain {
 					tempUTXOs.put(output.id, output);
 				}
 				
-				if( currentTransaction.outputs.get(0).reciepient != currentTransaction.reciepient) {
+				if( currentTransaction.outputs.get(0).recipient != currentTransaction.reciepient) {
 					System.out.println("#Transaction(" + t + ") output reciepient is not who it should be");
 					return false;
 				}
-				if( currentTransaction.outputs.get(1).reciepient != currentTransaction.sender) {
+				if( currentTransaction.outputs.get(1).recipient != currentTransaction.sender) {
 					System.out.println("#Transaction(" + t + ") output 'change' is not sender.");
 					return false;
 				}
